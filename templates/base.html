@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ambassade du Gabon au Sénégal{% endblock %}</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Ambassade du Gabon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'institution:home' %}">Ambassade</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'consular:home' %}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'procedures:home' %}">Procédures</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'news:home' %}">Actualités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'documents:home' %}">Documents</a></li>
+                    <li class="nav-item">
+                    <a class="nav-link text-warning" href="https://www.dgdi.ga/" target="_blank">
+                        Renouveler votre passeport
+                    </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container my-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-muted py-3 mt-auto">
+        &copy; {{ now|date:"Y" }} Ambassade du Gabon au Sénégal. Tous droits réservés.
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
