@@ -6,46 +6,109 @@
     <title>{% block title %}Ambassade du Gabon au Sénégal{% endblock %}</title>
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    {% block extra_css %}{% endblock %}
+
+    {% block extra_css %}
+    <style>
+        body {
+            background-color: #f4f6f9; /* gris clair institutionnel */
+        }
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,100,0,0.8), rgba(0,100,0,0.8)),
+                        url('https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg') no-repeat center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+        }
+        .cta {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .cta:hover {
+            background: #e0a800;
+            color: #fff;
+        }
+    </style>
+    {% endblock %}
 </head>
 <body>
+<div class="main-wrapper">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Ambassade du Gabon</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand fw-bold" href="{% url 'pages:home' %}">Ambassade du Gabon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{% url 'institution:home' %}">Ambassade</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'consular:home' %}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'consular:home' %}">Services Consulaires</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'procedures:home' %}">Procédures</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'news:home' %}">Actualités</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'documents:home' %}">Documents</a></li>
                     <li class="nav-item">
-                    <a class="nav-link text-warning" href="https://www.dgdi.ga/" target="_blank">
-                        Renouveler votre passeport
-                    </a>
+                        <a class="nav-link text-warning fw-bold" href="https://www.dgdi.ga/" target="_blank">
+                            Renouveler votre passeport
+                        </a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <!-- Contenu principal -->
-    <div class="container my-4">
-        {% block content %}{% endblock %}
+    <div class="container my-5">
+        {% block content %}
+        <!-- Exemple de section -->
+        <section id="missions" class="mb-5">
+            <h2 class="text-success">Nos missions principales</h2>
+            <ul>
+                <li>Représenter le Gabon auprès des autorités sénégalaises</li>
+                <li>Protéger et assister les citoyens gabonais au Sénégal</li>
+                <li>Promouvoir les échanges économiques et culturels</li>
+                <li>Délivrer passeports, visas et documents officiels</li>
+            </ul>
+        </section>
+        {% endblock %}
     </div>
 
     <!-- Footer -->
     <footer class="bg-light text-center text-muted py-3 mt-auto">
-        &copy; {{ now|date:"Y" }} Ambassade du Gabon au Sénégal. Tous droits réservés.
+        <p>
+            © {{ year|default:2026 }} — Ambassade du Gabon au Sénégal
+        </p>
+        <p class="fst-italic">Projet de démonstration</p>
+        <p>
+            <a href="{% url 'legal:mentions' %}">Mentions légales</a> •
+            <a href="{% url 'legal:contact' %}">Contact</a>
+        </p>
     </footer>
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    {% block extra_js %}{% endblock %}
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+{% block extra_js %}{% endblock %}
 </body>
 </html>

@@ -3,9 +3,60 @@
 {% block title %}Documents{% endblock %}
 
 {% block content %}
-<h1>Documents administratifs de l’ambassade du Gabon au Sénégal</h1>
-<p>
-Présentation officielle de l’ambassade, de ses missions diplomatiques
-et de ses services.
-</p>
+<div class="container my-4">
+    <h1 class="mb-4 text-success">Documents officiels</h1>
+
+    <!-- Section Visa -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+
+            <p class="mb-2">Pièces à fournir pour une demande de visa :</p>
+
+            <div class="alert alert-warning">
+                <strong>Attention :</strong> le dossier complet doit être constitué des pièces suivantes :
+            </div>
+
+            <ul class="list-group mb-3">
+                <li class="list-group-item">1 passeport en cours de validité (6 mois au minimum)</li>
+                <li class="list-group-item">1 formulaire de demande de visa dûment rempli</li>
+                <li class="list-group-item">1 photo d'identité en couleur</li>
+                <li class="list-group-item">1 copie du billet d'avion aller/retour</li>
+                <li class="list-group-item">1 copie du passeport (page de validité)</li>
+                <li class="list-group-item">
+                    L’original et une copie du certificat d’hébergement délivré par une mairie gabonaise 
+                    (l’hébergeant doit fournir à son invité une copie de sa pièce d’identité) 
+                    <br>ou l’original d’une réservation d’hôtel
+                </li>
+                <li class="list-group-item">1 ordre de mission et 1 lettre d’invitation pour les voyages d’affaires</li>
+                <li class="list-group-item">
+                    50 000 FCFA de frais en espèces 
+                    <span class="text-danger">(non remboursés en cas de refus)</span>
+                </li>
+            </ul>
+
+            <h3 class="h6 text-secondary">Horaires :</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Dépôt des dossiers : de 9h00 à 11h00 (Lundi à Vendredi)</li>
+                <li class="list-group-item">Retrait des visas : de 14h00 à 15h00 (Lundi à Vendredi)</li>
+                <li class="list-group-item">Délai normal : 2 jours</li>
+                <li class="list-group-item">Délai express : 24 heures</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section Documents téléchargeables -->
+    <h2 class="h5 text-primary mb-3">Documents téléchargeables</h2>
+    <ul class="list-group">
+        {% for doc in documents %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ doc.title }}
+                <a href="{{ doc.file.url }}" class="btn btn-sm btn-success" target="_blank">
+                    Télécharger
+                </a>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-muted">Aucun document disponible.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ambassade du Gabon au Sénégal{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+
+        <!-- Blason -->
+        <img
+            src="{% static 'images/blason-gabon.png' %}"
+            alt="Blason de la République Gabonaise"
+            class="mb-4"
+            style="max-width: 140px;"
+        >
+
+        <h1 class="fw-bold mb-3">
+            <h1>Bienvenue à l'Ambassade du Gabon au Sénégal</h1><br>
+        </h1>
+
+        <p class="lead mx-auto" style="max-width: 700px;">
+            Site institutionnel de présentation et d’information
+            destiné à la communauté gabonaise et aux partenaires
+            de la République du Gabon au Sénégal.
+        </p>
+
+        <a href="{% url 'news:home' %}" class="btn btn-primary mt-3">
+            Consulter les actualités
+        </a>
+    </div>
+</section>
+
+<!-- IMAGE HIGHLIGHT 
+<section class="py-5">
+    <div class="container">
+        <img
+            src="{% static 'images/gabon-paysage.jpg' %}"
+            alt="Paysage du Gabon"
+            class="img-fluid rounded shadow-sm w-100"
+        >
+    </div>
+</section>
+-->
+
+
+<!-- PRESENTATION SECTION -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-md-6">
+                <h2 class="fw-semibold mb-3">
+                    Le Gabon, une nation au cœur de l’Afrique
+                </h2>
+                <p>
+                    Le Gabon est un pays d’Afrique centrale reconnu pour
+                    sa stabilité institutionnelle, sa richesse culturelle
+                    et son engagement pour la préservation de l’environnement.
+                </p>
+                <p>
+                    L’Ambassade du Gabon au Sénégal œuvre pour l’accompagnement
+                    administratif, la protection consulaire et le renforcement
+                    des relations bilatérales entre nos deux pays.
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <img
+                    src="{% static 'images/gabon-culture.jpg' %}"
+                    alt="Culture gabonaise"
+                    class="img-fluid rounded shadow-sm"
+                >
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES QUICK ACCESS -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-semibold">
+            Accès rapide
+        </h2>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="p-4 border rounded bg-white h-100">
+                    <h5>Actualités</h5>
+                    <p class="small">
+                        Communiqués officiels et informations importantes.
+                    </p>
+                    <a href="{% url 'news:home' %}" class="btn btn-outline-primary btn-sm">
+                        Voir
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 border rounded bg-white h-100">
+                    <h5>Services consulaires</h5>
+                    <p class="small">
+                        Informations administratives et démarches.
+                    </p>
+                    <a href="{% url 'consular:home' %}" class="btn btn-outline-primary btn-sm">
+                        Consulter
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 border rounded bg-white h-100">
+                    <h5>Contact</h5>
+                    <p class="small">
+                        Contacter l’Ambassade du Gabon au Sénégal.
+                    </p>
+                    <a href="{% url 'legal:contact' %}" class="btn btn-outline-primary btn-sm">
+                        Écrire
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOT NOTE -->
+<section class="py-3 text-center">
+    <p class="text-muted small fst-italic mb-0">
+        Projet de démonstration — Refonte technique et UX institutionnelle
+    </p>
+</section>
+
+{% endblock %}
