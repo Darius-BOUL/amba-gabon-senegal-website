@@ -1,11 +1,131 @@
 {% extends "base.html" %}
 
-{% block title %}Services{% endblock %}
+{% block title %}Services consulaires{% endblock %}
 
 {% block content %}
-<h1>Services de l’Ambassade du Gabon au Sénégal</h1>
-<p>
-Présentation officielle de l’ambassade, de ses missions diplomatiques
-et de ses services.
-</p>
+<div class="container my-5">
+
+    <!-- Titre -->
+    <h1 class="mb-4 text-center text-success">Services consulaires</h1>
+
+    <!-- Introduction -->
+    <p class="lead text-center mb-5">
+        L’Ambassade de la République Gabonaise au Sénégal met à la disposition des ressortissants
+        gabonais et des usagers des services consulaires destinés à faciliter les démarches
+        administratives et à garantir la protection consulaire.
+    </p>
+
+    <!-- Services -->
+    <div class="row g-4">
+
+        <!-- Passeport -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Passeport</h5>
+                    <p class="card-text">
+                        Réception et suivi des demandes de passeports ordinaires et diplomatiques.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'passeport' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte consulaire -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Carte consulaire</h5>
+                    <p class="card-text">
+                        Inscription officielle des ressortissants gabonais auprès de l’Ambassade,
+                        facilitant l’accès aux services consulaires.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'carte-consulaire' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- État civil -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">État civil</h5>
+                    <p class="card-text">
+                        Accompagnement dans les démarches liées aux actes d’état civil :
+                        naissance, mariage et décès.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'etat-civil' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Légalisation -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Légalisation et certification</h5>
+                    <p class="card-text">
+                        Légalisation et certification de documents administratifs conformément
+                        à la réglementation en vigueur.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'legalisation' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assistance -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Assistance consulaire</h5>
+                    <p class="card-text">
+                        Assistance fournie aux ressortissants gabonais en situation nécessitant
+                        l’intervention de l’Ambassade.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'assistance' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visas -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Visas et informations consulaires</h5>
+                    <p class="card-text">
+                        Informations relatives aux formalités de visa et aux conditions d’entrée
+                        sur le territoire gabonais.
+                    </p>
+
+                    <a href="{% url 'procedures:detail' 'visas-et-informations-consulaires' %}"
+                    class="btn btn-outline-primary btn-sm">
+                        Voir la procédure →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}

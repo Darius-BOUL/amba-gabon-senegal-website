@@ -5,33 +5,28 @@
 
 {% block content %}
 
-<!-- HERO SECTION -->
-<section class="bg-light py-5 text-center">
-    <div class="container">
+<section class="bg-dark text-white text-center py-5 position-relative">
+    <!-- Image en arrière-plan -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" 
+    style="background-image: url('{% static 'images/1.jpg' %}');
+    background-size :cover; background-position :center; opacity: 0.4; z-index: 0;">
+    </div>
 
-        <!-- Blason -->
-        <img
-            src="{% static 'images/blason-gabon.png' %}"
-            alt="Blason de la République Gabonaise"
-            class="mb-4"
-            style="max-width: 140px;"
-        >
-
-        <h1 class="fw-bold mb-3">
-            <h1>Bienvenue à l'Ambassade du Gabon au Sénégal</h1><br>
-        </h1>
-
+    <!-- Contenu -->
+    <div class="container position-relative" style="z-index: 1;">
+        <img src="{% static 'images/blason-gabon.png' %}" alt="Blason de la République Gabonaise"
+             class="mb-4" style="max-width: 140px;">
+        <h1 class="fw-bold mb-3">Bienvenue à l'Ambassade du Gabon au Sénégal</h1>
         <p class="lead mx-auto" style="max-width: 700px;">
-            Site institutionnel de présentation et d’information
-            destiné à la communauté gabonaise et aux partenaires
-            de la République du Gabon au Sénégal.
+            Site institutionnel de présentation et d’information destiné à la communauté gabonaise
+            et aux partenaires de la République du Gabon au Sénégal.
         </p>
-
-        <a href="{% url 'news:home' %}" class="btn btn-primary mt-3">
+        <a href="{% url 'news:home' %}" class="btn btn-warning mt-3 fw-bold">
             Consulter les actualités
         </a>
     </div>
 </section>
+
 
 <!-- IMAGE HIGHLIGHT 
 <section class="py-5">
@@ -53,7 +48,7 @@
 
             <div class="col-md-6">
                 <h2 class="fw-semibold mb-3">
-                    Le Gabon, une nation au cœur de l’Afrique
+                    Les mots de l'ambassadeur
                 </h2>
                 <p>
                     Le Gabon est un pays d’Afrique centrale reconnu pour

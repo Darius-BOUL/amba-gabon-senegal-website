@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ procedure.title }}{% endblock %}
+
+{% block content %}
+<div class="container my-5 text-center">
+
+    <h1 class="mb-4 text-success">{{ procedure.title }}</h1>
+
+    <p class="text-muted mb-4">
+        Dernière mise à jour : {{ procedure.updated_at|date:"d/m/Y" }}
+    </p>
+
+    <!-- Contenu -->
+    <div class="fs-5">
+        {{ procedure.content|linebreaks }}
+    </div>
+
+    <!-- Retour -->
+    <a href="{% url 'procedures:home' %}" class="btn btn-secondary mt-4">
+        ← Retour aux procédures
+    </a>
+
+</div>
+{% endblock %}
