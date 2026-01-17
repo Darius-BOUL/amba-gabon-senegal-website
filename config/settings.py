@@ -1,6 +1,7 @@
 
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +14,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1a!p^z$8dbukkx+@0#ra_)enacg*2464=u1e38!3x=q4-e$sxi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,14 +79,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+ # Commenter la base de données SQLite par défaut
+ #DATABASES = {
+ #    'default': {
+ #        'ENGINE': 'django.db.backends.sqlite3',
+ #        'NAME': BASE_DIR / 'db.sqlite3',
+ #    }
+ #}
+DATABASES = { 
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
