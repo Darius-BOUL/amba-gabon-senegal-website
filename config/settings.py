@@ -12,6 +12,9 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
 )
 
+CLOUDINARY_CLOUD_NAME=dq1vou6uq
+CLOUDINARY_API_KEY=185435392768284
+CLOUDINARY_API_SECRET=kPqFE2qZ_HddFPvAXbDbjbBGJwI
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
