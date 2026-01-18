@@ -2,16 +2,26 @@
 import os
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1a!p^z$8dbukkx+@0#ra_)enacg*2464=u1e38!3x=q4-e$sxi'
+#SECRET_KEY = 'django-insecure-1a!p^z$8dbukkx+@0#ra_)enacg*2464=u1e38!3x=q4-e$sxi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
@@ -19,6 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Application definition
 
@@ -30,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+
+    'cloudinary',
+    'cloudinary_storage',
 
         # Apps métier
     'apps.core',
@@ -54,6 +68,9 @@ MIDDLEWARE = [
 
     "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 ROOT_URLCONF = 'config.urls'
 
@@ -132,6 +149,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+#MEDIA_URL = "/media/"
+#MEDIA_ROOT = BASE_DIR / "media"
+
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
