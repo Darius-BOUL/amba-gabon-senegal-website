@@ -1,12 +1,15 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from cloudinary.models import CloudinaryField
 
 class News(models.Model):
     title = models.CharField("Titre", max_length=255)
     slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
     content = RichTextField("Contenu") 
-    image = models.ImageField("Image", upload_to="news_images/", blank=True, null=True)
+    #image = models.ImageField("Image", upload_to="news_images/", blank=True, null=True)
+    image = CloudinaryField("Image", blank=True, null=True)
+
     published_at = models.DateTimeField("Date de publication", auto_now_add=True)
     is_published = models.BooleanField("Publié", default=True)
 
